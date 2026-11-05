@@ -81,7 +81,7 @@ async function start() {
       }
     });
 
-    // 🚀 STABILIZED NETWORK AGENT: Strict packet sniffing to eliminate ghost triggers entirely
+    // Strict packet sniffing to eliminate ghost triggers
     await waPage.evaluate(() => {
       if (window.WWebInterceptionActive) return;
       window.WWebInterceptionActive = true;
@@ -97,7 +97,7 @@ async function start() {
             !item.id.fromMe &&            // Must not be sent by the bot
             item.type === 'chat' &&        // Must be a standard text chat
             !item.isStatusV3 &&            // Ignore status/story updates
-            item.isNewMsg === true         // 🚀 CRITICAL: Must be an actual newly arrived push notification packet
+            item.isNewMsg === true         
           ) {
             // Drop system text or encryption filler flags cleanly
             if (!item.body.includes('end-to-end encrypted') && item.body.trim().length > 0) {
