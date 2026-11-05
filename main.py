@@ -219,7 +219,7 @@ async def post_discord_log(
 
     # High = Red (0xFF0000), Medium = Orange (0xFFA500), Low = Gray (0x808080)
     color = 0xFF0000 if is_urgent_score == 2 else (0xFFA500 if is_urgent_score == 1 else 0x808080)
-    title_prefix = "URGENT [HIGH] — " if is_urgent_score == 2 else ("📊 [MEDIUM] — " if is_urgent_score == 1 else "☕ [LOW] — ")
+    title_prefix = "URGENT [HIGH] — " if is_urgent_score == 2 else (" [MEDIUM] — " if is_urgent_score == 1 else " [LOW] — ")
     ts = datetime.now(timezone.utc).isoformat()
 
     embed = {
